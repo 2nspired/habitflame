@@ -2,11 +2,11 @@ import { z } from 'zod';
 
 import { db } from '~/utilities/prisma';
 
-import { adminProcedure, createTRPCRouter } from '../trpc';
+import { createTRPCRouter, publicProcedure } from '../trpc';
 
 export const userRouter = createTRPCRouter({
   // GET USER INFORMATION
-  getUser: adminProcedure
+  getUser: publicProcedure
     .input(
       z.object({
         id: z.string(),
@@ -30,7 +30,7 @@ export const userRouter = createTRPCRouter({
     }),
 
   // UPDATE USER INFORMATION
-  updateUser: adminProcedure
+  updateUser: publicProcedure
     .input(
       z.object({
         id: z.string(),

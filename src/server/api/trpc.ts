@@ -28,7 +28,12 @@ import { db } from '~/utilities/prisma';
  * @see https://trpc.io/docs/server/context
  */
 export const createTRPCContext = async (opts: { headers: Headers }) => {
-  const session = await getAuth();
+  // TODO: ADD getAuth() from Supabase
+  const session = {
+    user: null,
+    isLoggedIn: false,
+  };
+  // const session = await getAuth();
   return {
     db,
     session,
@@ -122,19 +127,20 @@ export const protectedProcedure = t.procedure.use(({ ctx, next }) => {
  *
  * TODO: make this more strict by explicit of user ids instead of relying on endsWith @advanceh2.com
  */
-export const adminProcedure = t.procedure.use(({ ctx, next }) => {
-  if (
-    // eslint-disable-next-line @typescript-eslint/prefer-optional-chain
-    !ctx.session ||
-    !ctx.session.user ||
-    !['thomastrudzinski@gmail.com'].includes(ctx.session.user.email)
-  ) {
-    throw new TRPCError({ code: 'UNAUTHORIZED' });
-  }
-  return next({
-    ctx: {
-      // infers the `session` as non-nullable
-      session: { ...ctx.session, user: ctx.session.user },
-    },
-  });
-});
+// TODO: ADD ADMIN PROCEDURE WHEN READY (below is disabled)
+// export const adminProcedure = t.procedure.use(({ ctx, next }) => {
+//   if (
+//     // eslint-disable-next-line @typescript-eslint/prefer-optional-chain
+//     !ctx.session ||
+//     !ctx.session.user ||
+//     !['thomastrudzinski@gmail.com'].includes(ctx.session.user.email)
+//   ) {
+//     throw new TRPCError({ code: 'UNAUTHORIZED' });
+//   }
+//   return next({
+//     ctx: {
+//       // infers the `session` as non-nullable
+//       session: { ...ctx.session, user: ctx.session.user },
+//     },
+//   });
+// });
