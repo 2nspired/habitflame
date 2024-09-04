@@ -40,4 +40,6 @@ const sortConfig = {
   importOrderTypeScriptVersion: "5.0.0",
 };
 
-export default { ...config, ...sortConfig };
+const prettierConfig = { ...config, ...sortConfig };
+
+export default prettierConfig;
