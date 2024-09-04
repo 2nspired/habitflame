@@ -3,7 +3,7 @@
 //  */
 
 // const eslint = require('@eslint/js');
-const tseslint = require('@typescript-eslint/eslint-plugin');
+// const tseslint = require('@typescript-eslint/eslint-plugin');
 
 
  const config = {
@@ -11,9 +11,9 @@ const tseslint = require('@typescript-eslint/eslint-plugin');
   parserOptions: {
     project: true,
   },
-  plugins: {
-    tseslint
-  },
+  plugins: [
+    '@typescript-eslint',
+  ],
   extends: [
     'next/core-web-vitals',
     'plugin:@typescript-eslint/recommended-type-checked',
