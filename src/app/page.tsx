@@ -2,9 +2,9 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center p-24 bg-zinc-800">
-          <h1 className="text-white text-3xl font-semibold">HabitFlame</h1>
-          <p className="text-white">coming soon...</p>
+    <main className="flex min-h-screen flex-col p-24 bg-gradient-to-r from-red-500 to-orange-500">
+          <h1 className="text-white text-5xl font-bold">HabitFlame</h1>
+          <p className="text-white">in progress...</p>
     </main>
   );
 }
