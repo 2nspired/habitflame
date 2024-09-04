@@ -1,8 +1,7 @@
-import { createEnv } from "@t3-oss/env-nextjs";
+import { createEnv } from '@t3-oss/env-nextjs';
 import { z } from 'zod';
 
 export const env = createEnv({
-
   /**
    * Specify your server-side environment variables schema here. This way you can ensure the app
    * isn't built with invalid env vars.
@@ -12,11 +11,11 @@ export const env = createEnv({
     NODE_ENV: z
       .enum(['development', 'test', 'preview', 'production'])
       .default('development'),
-  /**
-   * Specify your client-side environment variables schema here. This way you can ensure the app
-   * isn't built with invalid env vars. To expose them to the client, prefix them with
-   * `NEXT_PUBLIC_`.
-   */
+    /**
+     * Specify your client-side environment variables schema here. This way you can ensure the app
+     * isn't built with invalid env vars. To expose them to the client, prefix them with
+     * `NEXT_PUBLIC_`.
+     */
   },
   client: {
     // node
@@ -24,8 +23,8 @@ export const env = createEnv({
       .enum(['development', 'test', 'preview', 'production'])
       .default('development'),
     // supabase
-    // NEXT_PUBLIC_SUPABASE_URL: z.string().min(1),
-    // NEXT_PUBLIC_SUPABASE_ANON_KEY: z.string().min(1),
+    NEXT_PUBLIC_SUPABASE_URL: z.string().min(1),
+    NEXT_PUBLIC_SUPABASE_ANON_KEY: z.string().min(1),
     // vercel
     NEXT_PUBLIC_VERCEL_URL: z.string().min(1),
   },
@@ -40,8 +39,8 @@ export const env = createEnv({
 
     // client
     NEXT_PUBLIC_NODE_ENV: process.env.NODE_ENV,
-    // NEXT_PUBLIC_SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL,
-    // NEXT_PUBLIC_SUPABASE_ANON_KEY: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+    NEXT_PUBLIC_SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL,
+    NEXT_PUBLIC_SUPABASE_ANON_KEY: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
     NEXT_PUBLIC_VERCEL_URL: process.env.NEXT_PUBLIC_VERCEL_URL,
   },
 

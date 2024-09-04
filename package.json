@@ -8,10 +8,17 @@
     "prod": "next build && next start",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "db:gen": "prisma generate",
+    "db:push": "prisma db push",
+    "db:danger:danger:reset": "prisma db push --force-reset",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
+    "@prisma/client": "5.19.1",
     "@t3-oss/env-nextjs": "^0.11.1",
+    "@trpc/client": "^11.0.0-rc.498",
+    "@trpc/server": "^11.0.0-rc.498",
     "@types/eslint": "^9.6.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
@@ -20,6 +27,7 @@
     "next": "14.2.7",
     "react": "^18",
     "react-dom": "^18",
+    "superjson": "^2.2.1",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
     "tsx": "^4.19.0",
@@ -38,6 +46,7 @@
     "postcss-load-config": "^6.0.1",
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.6",
+    "prisma": "^5.19.1",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.5.4",
     "typescript-eslint": "^8.4.0"

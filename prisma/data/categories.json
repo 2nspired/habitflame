@@ -1,0 +1,79 @@
+[
+  {
+    "name": "Health",
+    "slug": "health",
+    "description": "Improving diet, hydration, sleep quality, or reducing alcohol/smoking.",
+    "is_active": true,
+    "sort": 1
+  },
+  {
+    "name": "Fitness",
+    "slug": "fitness",
+    "description": "Regular exercise routines, strength training, or cardio activities.",
+    "is_active": true,
+    "sort": 2
+  },
+  {
+    "name": "Finances",
+    "slug": "finances",
+    "description": "Budgeting, saving money, investing, or managing debt.",
+    "is_active": true,
+    "sort": 3
+  },
+  {
+    "name": "Productivity",
+    "slug": "productivity",
+    "description": "Time management, goal setting, or improving focus.",
+    "is_active": true,
+    "sort": 4
+  },
+  {
+    "name": "Personal Development",
+    "slug": "personal-development",
+    "description": "Learning new skills, reading more, or practicing mindfulness.",
+    "is_active": true,
+    "sort": 5
+  },
+  {
+    "name": "Mental Health",
+    "slug": "mental-health",
+    "description": "Reducing stress, practicing gratitude, or meditation.",
+    "is_active": true,
+    "sort": 6
+  },
+  {
+    "name": "Relationships",
+    "slug": "relationships",
+    "description": "Building stronger connections with family or friends, better communication.",
+    "is_active": true,
+    "sort": 7
+  },
+  {
+    "name": "Career",
+    "slug": "career",
+    "description": "Professional skills development, networking, or work-life balance.",
+    "is_active": true,
+    "sort": 8
+  },
+  {
+    "name": "Creativity",
+    "slug": "creativity",
+    "description": "Developing creative hobbies like writing, painting, or photography.",
+    "is_active": true,
+    "sort": 9
+  },
+  {
+    "name": "Sustainability",
+    "slug": "sustainability",
+    "description": "Reducing waste, eco-friendly habits, or conscious consumption.",
+    "is_active": true,
+    "sort": 10
+  },
+  {
+    "name": "Other",
+    "slug": "other",
+    "description": "Custom habits that don't fit into other categories.",
+    "is_active": true,
+    "sort": 11
+  }
+]
