@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --outline-color: #8eb4f6;
+}
+*:focus {
+  outline-color: var(--outline-color);
+  outline-offset: 2px;
+  outline-width: 2px;
+}
