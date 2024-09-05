@@ -18,14 +18,22 @@ datasource db {
 
 // USER
 model User {
-  id        String    @id @default(uuid())
-  firstName String?
-  lastName  String?
-  email     String    @unique
-  password  String
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
-  lastLogin DateTime?
+  id         String    @id @default(uuid())
+  first_name String?
+  last_name  String?
+  email      String    @unique
+  password   String
+  role       Role      @default(user)
+  created_at DateTime  @default(now())
+  updated_at DateTime  @updatedAt
+  last_login DateTime?
+  // relations
+  habits     Habit[]
+}
+
+enum Role {
+  user
+  admin
 }
 
 // HABIT CATEGORIES
@@ -34,9 +42,46 @@ model HabitCategory {
   name        String
   slug        String   @unique
   description String
+  // status
   is_active   Boolean  @default(true)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  sort        Int      @default(0)
+  // timestamps
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+  // relations
+  habits      Habit[]
 }
 
 // HABIT
+
+model Habit {
+  id            String        @id @default(uuid())
+  name          String
+  description   String?
+  goal_type     Goal
+  some_days     String[]      @default([])
+  days          Int           @default(7)
+  success_date  DateTime
+  // relay
+  user_id       String
+  category_id   Int
+  // reminders
+  reminder      Boolean       @default(true)
+  triggered_at  DateTime?
+  // timestamps
+  created_at    DateTime      @default(now())
+  updated_at    DateTime      @updatedAt
+  deleted_at    DateTime?
+  // status
+  is_active     Boolean       @default(true)
+  // relations
+  user          User          @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  habitCategory HabitCategory @relation(fields: [category_id], references: [id])
+}
+
+enum Goal {
+  daily
+  some
+  number
+  repeat
+}

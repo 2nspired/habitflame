@@ -2,6 +2,7 @@ import type { inferRouterInputs, inferRouterOutputs } from '@trpc/server';
 
 import { createCallerFactory, createTRPCRouter } from '~/server/api/trpc';
 
+import { habitCategoryRouter } from './routers/habit-category';
 import { userRouter } from './routers/user';
 
 /**
@@ -11,6 +12,7 @@ import { userRouter } from './routers/user';
  */
 export const appRouter = createTRPCRouter({
   user: userRouter,
+  habitCategory: habitCategoryRouter,
 });
 
 // export type definition of API
